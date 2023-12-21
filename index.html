@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<script>
+			var vw;
+			var vh;
+			function resizeHandler(){
+							if(window.innerWidth !== undefined && window.innerHeight !== undefined) { 
+											var w = window.innerWidth;
+											var h = window.innerHeight;
+										} else {  
+														var w = document.documentElement.clientWidth;
+														var h = document.documentElement.clientHeight;
+													}
+							vh = h;
+							vw = w;
+							//var txt = "Page size: width=" + w + ", height=" + h;
+							//document.getElementById("demo").innerHTML = txt;
+						}
+		</script>
 		<title>Cacat</title>
 		<style>
 
 body {
-  background-color: black;
+	background-color: black;
 }
 
 #ball {
@@ -16,11 +33,14 @@ body {
 }
 		</style>
 	</head>
-	<body>
+	<body onresize="resizeHandler()" onload="resizeHandler()">
+
 		<div id="ball">💩</div>
 		<script>
+
 			const ball = document.getElementById("ball");
-      const ballSize = 240;
+			const ballSize = 240;
+
 			let x = 0;
 			let y = 0;
 			let xSpeed = 5;
@@ -28,10 +48,10 @@ body {
 			function animate() {
 							x += xSpeed;
 							y += ySpeed;
-							if (x + ballSize > window.visualViewport.width || x < 0) {
+							if (x + ballSize > vw || x < 0) {
 											xSpeed = -xSpeed;
 										}
-							if (y + ballSize > window.visualViewport.height || y < 0) {
+							if (y + ballSize > vh || y < 0) {
 											ySpeed = -ySpeed;
 										}
 							ball.style.left = x + "px";
