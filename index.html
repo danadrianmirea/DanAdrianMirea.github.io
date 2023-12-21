@@ -48,6 +48,7 @@ body {
 			function animate() {
 							x += xSpeed;
 							y += ySpeed;
+              resizeHandler(); // make sure the correct size is used
 							if (x + ballSize > vw || x < 0) {
 											xSpeed = -xSpeed;
 										}
