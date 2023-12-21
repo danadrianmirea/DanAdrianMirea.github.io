@@ -1,5 +1,44 @@
+<!DOCTYPE html>
 <html>
+	<head>
+		<title>Cacat</title>
+		<style>
+
+body {
+  background-color: black;
+}
+
+#ball {
+	width: 240px;
+	height: 240px;
+	position: absolute;
+	font-size: 240px;
+}
+		</style>
+	</head>
 	<body>
-		<center><font size="70">💩</font>
+		<div id="ball">💩</div>
+		<script>
+			const ball = document.getElementById("ball");
+      const ballSize = 240;
+			let x = 0;
+			let y = 0;
+			let xSpeed = 5;
+			let ySpeed = 5;
+			function animate() {
+							x += xSpeed;
+							y += ySpeed;
+							if (x + ballSize > window.innerWidth || x < 0) {
+											xSpeed = -xSpeed;
+										}
+							if (y + ballSize > window.innerHeight || y < 0) {
+											ySpeed = -ySpeed;
+										}
+							ball.style.left = x + "px";
+							ball.style.top = y + "px";
+							requestAnimationFrame(animate);
+						}
+			animate();
+		</script>
 	</body>
 </html>
