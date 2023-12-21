@@ -28,10 +28,10 @@ body {
 			function animate() {
 							x += xSpeed;
 							y += ySpeed;
-							if (x + ballSize > window.innerWidth || x < 0) {
+							if (x + ballSize > window.visualViewport.width || x < 0) {
 											xSpeed = -xSpeed;
 										}
-							if (y + ballSize > window.innerHeight || y < 0) {
+							if (y + ballSize > window.visualViewport.height || y < 0) {
 											ySpeed = -ySpeed;
 										}
 							ball.style.left = x + "px";
