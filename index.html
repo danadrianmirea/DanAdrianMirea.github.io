@@ -1,65 +1,66 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script>
-			var vw;
-			var vh;
-			function resizeHandler(){
-							if(window.innerWidth !== undefined && window.innerHeight !== undefined) { 
-											var w = window.innerWidth;
-											var h = window.innerHeight;
-										} else {  
-														var w = document.documentElement.clientWidth;
-														var h = document.documentElement.clientHeight;
-													}
-							vh = h;
-							vw = w;
-							//var txt = "Page size: width=" + w + ", height=" + h;
-							//document.getElementById("demo").innerHTML = txt;
-						}
-		</script>
-		<title>Cacat</title>
-		<style>
+  <head>
+    <script>
+      var vw;
+      var vh;
+      function resizeHandler(){
+              if(window.innerWidth !== undefined && window.innerHeight !== undefined) { 
+                      var w = window.innerWidth;
+                      var h = window.innerHeight;
+                    } else {  
+                            var w = document.documentElement.clientWidth;
+                            var h = document.documentElement.clientHeight;
+                          }
+              vh = h;
+              vw = w;
+              //var txt = "Page size: width=" + w + ", height=" + h;
+              //document.getElementById("demo").innerHTML = txt;
+            }
+    </script>
+    <title>Cacat</title>
+    <style>
 
 body {
-	background-color: black;
+  background-color: black;
 }
 
 #ball {
-	width: 240px;
-	height: 240px;
-	position: absolute;
-	font-size: 240px;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  font-size: 240px;
+  //background-color: white;
 }
-		</style>
-	</head>
-	<body onresize="resizeHandler()" onload="resizeHandler()">
+    </style>
+  </head>
+  <body onresize="resizeHandler()" onload="resizeHandler()">
 
-		<div id="ball">💩</div>
-		<script>
+      <div id="ball">💩</div>
+    <script>
 
-			const ball = document.getElementById("ball");
-			const ballSize = 240;
+      const ball = document.getElementById("ball");
+      const ballSize = 240;
+//      const borderSize = 100;
 
-			let x = 0;
-			let y = 0;
-			let xSpeed = 5;
-			let ySpeed = 5;
-			function animate() {
-							x += xSpeed;
-							y += ySpeed;
-              resizeHandler(); // make sure the correct size is used
-							if (x + ballSize > vw || x < 0) {
-											xSpeed = -xSpeed;
-										}
-							if (y + ballSize > vh || y < 0) {
-											ySpeed = -ySpeed;
-										}
-							ball.style.left = x + "px";
-							ball.style.top = y + "px";
-							requestAnimationFrame(animate);
-						}
-			animate();
-		</script>
-	</body>
+      let x = 150;
+      let y = 150;
+      let xSpeed = 5;
+      let ySpeed = 5;
+      function animate() {
+              x += xSpeed;
+              y += ySpeed;
+              if (x + ballSize > vw - ballSize/2 || x < 0 ) {
+                      xSpeed = -xSpeed;
+                    }
+              if (y + ballSize > vh - ballSize/2 || y < 0 ) {
+                      ySpeed = -ySpeed;
+                    }
+              ball.style.left = x + "px";
+              ball.style.top = y + "px";
+              requestAnimationFrame(animate);
+            }
+      animate();
+    </script>
+  </body>
 </html>
