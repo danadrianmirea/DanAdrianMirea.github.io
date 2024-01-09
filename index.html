@@ -25,9 +25,14 @@ body {
   background-color: black;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 #ball {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   position: absolute;
   font-size: 240px;
   //background-color: white;
@@ -36,7 +41,7 @@ body {
   </head>
   <body onresize="resizeHandler()" onload="resizeHandler()">
 
-      <div id="ball">💩</div>
+      <div id="ball"><img src='img/eu.png'></div>
     <script>
 
       const ball = document.getElementById("ball");
