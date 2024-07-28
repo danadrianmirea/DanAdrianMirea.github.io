@@ -1,80 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script>
-      var vw;
-      var vh;
-      function resizeHandler(){
-              if(window.innerWidth !== undefined && window.innerHeight !== undefined) { 
-                      var w = window.innerWidth;
-                      var h = window.innerHeight;
-                    } else {  
-                            var w = document.documentElement.clientWidth;
-                            var h = document.documentElement.clientHeight;
-                          }
-              vh = h;
-              vw = w;
-              //var txt = "Page size: width=" + w + ", height=" + h;
-              //document.getElementById("demo").innerHTML = txt;
-            }
-    </script>
     <title>Intro</title>
     <style>
-
 body {
   background-color: black;
 }
-
-#poza {
-  max-width: 50%;
-  height: auto;
-}
-
-#ball {
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  font-size: 240px;
-  //background-color: white;
-}
     </style>
   </head>
-  <body onresize="resizeHandler()" onload="resizeHandler()">
-
-      //<div id="ball"><img id="poza" src='img/redkat.png'></div>
+	
+  <body>
     <script>
-
-      const ball = document.getElementById("ball");
-      const ballSize = 240;
-//      const borderSize = 100;
-
-      let x = 150;
-      let y = 150;
-      let xSpeed = 5;
-      let ySpeed = 5;
-      let numBounces = 0;
-      let maxNumBounces = 10;
-	  
-      function animate() {
-              x += xSpeed;
-              y += ySpeed;
-              if (x + ballSize > vw - ballSize/2 || x < 0 ) {
-                      xSpeed = -xSpeed;
-					  numBounces++;
-                    }
-              if (y + ballSize > vh - ballSize/2 || y < 0 ) {
-                      ySpeed = -ySpeed;
-					  numBounces++;
-                    }
-              ball.style.left = x + "px";
-              ball.style.top = y + "px";
-              requestAnimationFrame(animate);
-			  
-			  if(numBounces >= maxNumBounces) {
-				location.href = 'https://github.com/danadrianmirea?tab=repositories';
-			  }
-            }
-	//animate();
+	location.href = 'https://github.com/danadrianmirea?tab=repositories';
     </script>
   </body>
+	
 </html>
